@@ -1,0 +1,54 @@
+model_list:
+  - model_name: gpt-4_0613
+    litellm_params:
+      model: azure/gpt-4
+      api_key: os.environ/AZURE_API_KEY
+      api_base: os.environ/AZURE_API_BASE
+      api_version: os.environ/AZURE_API_VERSION
+      rpm: 250 
+
+  - model_name: gpt-4-32k
+    litellm_params:
+      model: azure/gpt-4-32k
+      api_key: os.environ/AZURE_API_KEY
+      api_base: os.environ/AZURE_API_BASE
+      api_version: os.environ/AZURE_API_VERSION
+      rpm: 200 #30000
+
+  - model_name: gpt-4-1106-preview
+    litellm_params:
+      model: azure/gpt-4-1106-preview
+      api_key: os.environ/AZURE_API_KEY
+      api_base: os.environ/AZURE_API_BASE
+      api_version: os.environ/AZURE_API_VERSION
+      rpm: 250 #10000
+
+  - model_name: gpt-35-turbo
+    litellm_params:
+      model: azure/gpt-35-turbo
+      api_key: os.environ/AZURE_API_KEY
+      api_base: os.environ/AZURE_API_BASE
+      api_version: os.environ/AZURE_API_VERSION
+      rpm: 1000 #120000
+
+  - model_name: gpt-35-turbo-16k
+    litellm_params:
+      model: azure/gpt-35-turbo-16k
+      api_key: os.environ/AZURE_API_KEY
+      api_base: os.environ/AZURE_API_BASE
+      api_version: os.environ/AZURE_API_VERSION
+      rpm: 1000 #120000
+
+litellm_settings:
+  drop_params: True
+  set_verbose: True
+
+general_settings: 
+  # master_key: sk-1234 # [OPTIONAL] Only use this if you to require all calls to contain this key (Authorization: Bearer sk-1234)
+  # database_url: "postgresql://<user>:<password>@<host>:<port>/<dbname>" # [OPTIONAL] use for token-based auth to proxy
+
+environment_variables:
+  # settings for using redis caching
+  # REDIS_HOST: redis-16337.c322.us-east-1-2.ec2.cloud.redislabs.com
+  # REDIS_PORT: "16337"
+  # REDIS_PASSWORD: 
