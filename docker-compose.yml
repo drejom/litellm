@@ -10,5 +10,8 @@ services:
     # You can change the port or number of workers as per your requirements or pass any new supported CLI argument. Make sure
     # the port passed here matches with the container port defined above in `ports` value
     command: ["/bin/sh", "-c", "litellm", "--config", "/app/config.yaml", "--port", "8080", "--num_workers", "8" ]
-
-# ...rest of your docker-compose config if any
+    environment:
+      - OPENAI_API_KEY=$OPENAI_API_KEY
+      - AZURE_API_BASE=$AZURE_API_BASE
+      - AZURE_API_VERSION=$AZURE_API_VERSION
+      - AZURE_API_KEY=$AZURE_API_KEY
