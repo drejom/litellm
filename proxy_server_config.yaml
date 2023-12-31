@@ -1,22 +1,70 @@
 model_list:
-  - model_name: gpt-4
-    litellm_params:
-      model: azure/chatgpt-v-2
-      api_base: https://openai-gpt-4-test-v-1.openai.azure.com/
-      api_version: "2023-05-15"
-      api_key: os.environ/AZURE_API_KEY1 # The `os.environ/` prefix tells litellm to read this from the env. See https://docs.litellm.ai/docs/simple_proxy#load-api-keys-from-vault
-  - model_name: gpt-4
+  - model_name: azure/gpt-4
     litellm_params:
       model: azure/gpt-4
-      api_key: os.environ/AZURE_API_KEY2
-      api_base: https://openai-gpt-4-test-v-2.openai.azure.com/
-      rpm: 100
-  - model_name: gpt-4
+      api_key: os.environ/AZURE_API_KEY
+      api_base: os.environ/AZURE_API_BASE
+      api_version: os.environ/AZURE_API_VERSION
+      rpm: 250 
+
+  - model_name: azure/gpt-4-32k
     litellm_params:
-      model: azure/gpt-4
-      api_key: 
-      api_base: https://openai-gpt-4-test-v-2.openai.azure.com/
-      rpm: 10
+      model: azure/gpt-4-32k
+      api_key: os.environ/AZURE_API_KEY
+      api_base: os.environ/AZURE_API_BASE
+      api_version: os.environ/AZURE_API_VERSION
+      rpm: 200 #30000
+
+  - model_name: azure/gpt-4-1106-preview
+    litellm_params:
+      model: azure/gpt-4-1106-preview
+      api_key: os.environ/AZURE_API_KEY
+      api_base: os.environ/AZURE_API_BASE
+      api_version: os.environ/AZURE_API_VERSION
+      rpm: 250 #10000
+
+  - model_name: azure/gpt-35-turbo
+    litellm_params:
+      model: azure/gpt-35-turbo
+      api_key: os.environ/AZURE_API_KEY
+      api_base: os.environ/AZURE_API_BASE
+      api_version: os.environ/AZURE_API_VERSION
+      rpm: 1000 #120000
+
+  - model_name: azure/gpt-35-turbo-16k
+    litellm_params:
+      model: azure/gpt-35-turbo-16k
+      api_key: os.environ/AZURE_API_KEY
+      api_base: os.environ/AZURE_API_BASE
+      api_version: os.environ/AZURE_API_VERSION
+      rpm: 1000 #120000
+  
+  - model_name: azure/text-embedding-ada-002
+    litellm_params:
+      model: azure/text-embedding-ada-002 # model name for litellm.embedding(model=azure/azure-embedding-model) call
+      api_key: os.environ/AZURE_API_KEY
+      api_base: os.environ/AZURE_API_BASE
+      api_version: os.environ/AZURE_API_VERSION
+    model_info:
+      mode: embedding 
+
+#########################################################
+# OpenAI
+  - model_name: openai/gpt-3.5-turbo
+    litellm_params:
+      model: openai/gpt-3.5-turbo
+      api_key: os.environ/OPENAI_API_KEY
+
+  - model_name: openai/gpt-3.5-turbo-16k
+    litellm_params:
+      model: openai/gpt-3.5-turbo-16k
+      api_key: os.environ/OPENAI_API_KEY
+
+  - model_name: openai/gpt-4
+    litellm_params:
+      model: openai/gpt-4
+      api_key: os.environ/OPENAI_API_KEY
+
 
 litellm_settings:
   drop_params: True
@@ -25,6 +73,9 @@ litellm_settings:
 general_settings: 
   # master_key: sk-1234 # [OPTIONAL] Only use this if you to require all calls to contain this key (Authorization: Bearer sk-1234)
   # database_url: "postgresql://<user>:<password>@<host>:<port>/<dbname>" # [OPTIONAL] use for token-based auth to proxy
+  background_health_checks: True # enable background health checks
+  health_check_interval: 300 # frequency of background health checks
+
 
 environment_variables:
   # settings for using redis caching
