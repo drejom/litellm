@@ -1,5 +1,5 @@
 model_list:
-  - model_name: azure/gpt-4
+  - model_name: azure-gpt-4
     litellm_params:
       model: azure/gpt-4
       api_key: os.environ/AZURE_API_KEY
@@ -7,7 +7,7 @@ model_list:
       api_version: os.environ/AZURE_API_VERSION
       rpm: 250 
 
-  - model_name: azure/gpt-4-32k
+  - model_name: azure-gpt-4-32k
     litellm_params:
       model: azure/gpt-4-32k
       api_key: os.environ/AZURE_API_KEY
@@ -15,7 +15,7 @@ model_list:
       api_version: os.environ/AZURE_API_VERSION
       rpm: 200 #30000
 
-  - model_name: azure/gpt-4-1106-preview
+  - model_name: azure-gpt-4-1106-preview
     litellm_params:
       model: azure/gpt-4-1106-preview
       api_key: os.environ/AZURE_API_KEY
@@ -23,7 +23,7 @@ model_list:
       api_version: os.environ/AZURE_API_VERSION
       rpm: 250 #10000
 
-  - model_name: azure/gpt-35-turbo
+  - model_name: azure-gpt-35-turbo
     litellm_params:
       model: azure/gpt-35-turbo
       api_key: os.environ/AZURE_API_KEY
@@ -31,7 +31,7 @@ model_list:
       api_version: os.environ/AZURE_API_VERSION
       rpm: 1000 #120000
 
-  - model_name: azure/gpt-35-turbo-16k
+  - model_name: azure-gpt-35-turbo-16k
     litellm_params:
       model: azure/gpt-35-turbo-16k
       api_key: os.environ/AZURE_API_KEY
@@ -39,7 +39,7 @@ model_list:
       api_version: os.environ/AZURE_API_VERSION
       rpm: 1000 #120000
   
-  - model_name: azure/text-embedding-ada-002
+  - model_name: azure-text-embedding-ada-002
     litellm_params:
       model: azure/text-embedding-ada-002 # model name for litellm.embedding(model=azure/azure-embedding-model) call
       api_key: os.environ/AZURE_API_KEY
@@ -50,17 +50,17 @@ model_list:
 
 #########################################################
 # OpenAI
-  - model_name: openai/gpt-3.5-turbo
+  - model_name: openai-gpt-3.5-turbo
     litellm_params:
       model: openai/gpt-3.5-turbo
       api_key: os.environ/OPENAI_API_KEY
 
-  - model_name: openai/gpt-3.5-turbo-16k
+  - model_name: openai-gpt-3.5-turbo-16k
     litellm_params:
       model: openai/gpt-3.5-turbo-16k
       api_key: os.environ/OPENAI_API_KEY
 
-  - model_name: openai/gpt-4
+  - model_name: openai-gpt-4
     litellm_params:
       model: openai/gpt-4
       api_key: os.environ/OPENAI_API_KEY
